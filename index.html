@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iv</title>
+    <link rel="icon" href="favicon.ico" />
+    <style>
+      body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        color: #333;
+        text-align: center;
+      }
+      h1 {
+        font-size: 36px;
+        margin-top: 50px;
+      }
+      p {
+        font-size: 22px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 30px;
+      }
+      .button:hover {
+        background-color: #3e8e41;
+      }
+      .time {
+        font-size: 22px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>iv 曲线助手</h1>
+    <p>方便提取图片中的有效信息，并导出合适的格式</p>
+    <div class="time">有效时间： <span id="time"></span></div>
+    <a href="#" class="button">下载最新 license</a>
+    <script>
+      // 获取当前时间
+      var now = new Date();
+      // 计算15天后的时间
+      var future = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 15
+      );
+      // 将时间格式化为字符串
+      var nowStr = now.toLocaleString();
+      var futureStr = future.toLocaleString();
+      // 将时间文本插入到页面中
+      document.getElementById("time").innerHTML = nowStr + " 至 " + futureStr;
+    </script>
+  </body>
+</html>
