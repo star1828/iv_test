@@ -20,14 +20,17 @@
         margin-bottom: 50px;
       }
       .button {
-        display: inline-block;
-        padding: 10px 20px;
         background-color: #4caf50;
-        color: #fff;
-        font-size: 20px;
-        border-radius: 5px;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
         text-decoration: none;
-        margin-top: 30px;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
       }
       .button:hover {
         background-color: #3e8e41;
@@ -43,8 +46,18 @@
     <h1>iv 曲线助手</h1>
     <p>方便提取图片中的有效信息，并导出合适的格式</p>
     <div class="time">有效时间： <span id="time"></span></div>
-    <a href="/download" class="button">下载最新 license</a>
+    <button class="button" onclick="downloadFile()">下载最新 license</button>
+
     <script>
+      function downloadFile() {
+        var link = document.createElement("a");
+        link.download = "license";
+        link.href = "/download";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
       // 获取当前时间
       var now = new Date();
       // 计算15天后的时间
