@@ -46,6 +46,7 @@
     <h1>iv 曲线助手</h1>
     <p>方便提取图片中的有效信息，并导出合适的格式</p>
     <div class="time">有效时间： <span id="time"></span></div>
+    <div class="time">安装包最新更新时间： <span id="published_at"></span></div>
     <button class="button" onclick="downloadFile()">下载最新 license</button>
 
     <script>
@@ -71,6 +72,11 @@
       var futureStr = future.toLocaleString();
       // 将时间文本插入到页面中
       document.getElementById("time").innerHTML = nowStr + " 至 " + futureStr;
+
+      fetch("/published_at")
+        .then((response) => response.text())
+        .then((data) => (document.getElementById("published_at").innerHTML = data))
+        .catch((error) => console.log(error));
     </script>
   </body>
 </html>
