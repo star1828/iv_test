@@ -46,7 +46,7 @@
     <h1>iv 曲线助手</h1>
     <p>方便提取图片中的有效信息，并导出合适的格式</p>
     <div class="time">有效时间： <span id="time"></span></div>
-    <div class="time"> <span id="name"></span></div>
+    <div class="time"><span id="name"></span></div>
     <div class="time">安装包最新更新时间： <span id="published_at"></span></div>
     <button class="button" onclick="downloadFile()">下载最新 license</button>
 
@@ -55,8 +55,7 @@
     <script>
       function downloadFile() {
         var link = document.createElement("a");
-        link.download = "license";
-        link.href = "/download";
+        link.href = "/download/" + Date.now();
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -64,7 +63,7 @@
 
       function downloadLatest() {
         var link = document.createElement("a");
-        link.href = "/latest";
+        link.href = "/latest/" + Date.now();
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
